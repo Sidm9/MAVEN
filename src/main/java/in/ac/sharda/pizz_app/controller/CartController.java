@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.ac.sharda.pizz_app.domain.Cart;
 import in.ac.sharda.pizz_app.domain.Product;
 //4.) CREATED A REST CONTROLLER 
 
@@ -18,13 +17,18 @@ public class CartController {
 	public void addProduct(Product product) {
 		this.products.add(product);
 	}
-	//*** ADDED A BEHAVIOUR MAPPING IN CARTCONTROLLER TO REMOVE ITEMS FROM THE CART
+	//*** 6.) ADDED A BEHAVIOUR MAPPING IN CARTCONTROLLER TO REMOVE ITEMS FROM THE CART
 	@GetMapping("/remove/list")
 	public void removeProduct(Product product)
 	{
 		products.remove(product);
 	}
+
+	@GetMapping("/count/list")
+	public int count()
+	{
+		return products.size();
+	}
 	
-	
-	  
-}
+}  
+
