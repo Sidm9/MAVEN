@@ -21,13 +21,14 @@ public class CartController {
 	@GetMapping("/remove/list")
 	public void removeProduct(Product product)
 	{
-		products.remove(product);
+		this.products.remove(product);
 	}
 
 	@GetMapping("/count/list")
 	public int count()
 	{
-		return products.size();
+		// 7.) COUNT ITEMS IN CART
+		return this.products.size();
 	}
 	
 }  
