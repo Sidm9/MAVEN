@@ -17,7 +17,6 @@ public class ProductListController {
 		List<Product> products = new ArrayList<Product>();
 		for (int i = 0; i < 20; i++) {
 			products.add(new Product(i,i*10,"Name" +i,"Desc" +i));
-			
 		}
 		return products;
 		

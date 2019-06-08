@@ -1,18 +1,25 @@
 package in.ac.sharda.pizz_app.domain;
-
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Cart {
 	private int id;     //*** 8.) ADDED A STATE ITEM IN THE CART
+	public Set<Product> uniqueItem=new TreeSet<>();
 	private int cartid; //*** 9.) ADDED A STATE THAT MAKES YOUR CART UNIQUE
 	// IMPORTED A LIST NAMED AS PRODUCT
 	// ...Added a new Array List
-	private List<Product> products = new ArrayList<>();
+	public List<Product> products;
+	public void add()
+    {
+    	for(int i=0;i<20;i++)
+    	{
+    		this.uniqueItem.add(new Product(i,i*100,"Name "+i,"Description: "+i));
+    	}
+    }
 
-	public void addProduct(Product product) {
-		this.products.add(product);
-	}
 	public void removeitem(Product product) {
 		this.products.remove(product);   //***10 ADDED A BEHAVIOUR TO REMOVE ITEM  
 	}
@@ -20,32 +27,26 @@ public class Cart {
 		this.products.add(product);   //***11 ADDED A BEHAVIOUR TO ADD ITEM  
 	}
 	//*** 12.) ALL POSSIBLE CONSTRUCTORS
-	public Cart(int id, int cartid, List<Product> products) {
-		super();
-		this.id = id;
+	public Cart(Set<Product> uniqueItem, int cartid, List<Product> products) {
+		this.uniqueItem = uniqueItem;
 		this.cartid = cartid;
 		this.products = products;
 	}
-	public Cart(int id)
-	{
-		this.id = id;
+	public int getCartid() {
+		return cartid;
 	}
-	public Cart(List<Product> products)
-	{
-		this.products = products;
+	public void setCartid(int cartid) {
+		this.cartid = cartid;
 	}
-	public Cart(int id,int cartid)
-	{
-		this.id = id;
-		this.cartid = cartid;		
-	}
-	public Cart(int id,List<Product> products)
-	{
-		this.id = id;
-		this.products = products;
-	}
-	
-	
+	@Override
+	public boolean equals(Object arg0) {
+
+    	if(arg0 instanceof Cart)
+    	{
+    		return ((Cart)arg0).getCartid()==cartid;
+    	}
+    	return false;
+    }
 	
 
 }

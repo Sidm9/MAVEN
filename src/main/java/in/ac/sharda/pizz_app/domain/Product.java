@@ -50,7 +50,7 @@ public class Product {
 		this.id = id;
 	}
 	
-	
+	//
 	//CONSTRUCTOR AUTO DEFINED..... 
 	//THIS CONSTRUCTOR IS USED IN PLACE OF ALL THE SETTERS 
 		public Product(int id, int price, String name, String description) {
@@ -76,4 +76,13 @@ public class Product {
 			return ((Product)obj).getId() == id;
 		return false;
 	}
+	public Product(int id, int price, int calories, String name, String description) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.calories = calories;
+		this.name = name;
+		this.description = description;
+	}
+	
 }
